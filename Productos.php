@@ -47,6 +47,7 @@
     </div>
 
     <button type="submit" name="enviar" class="btn btn-primary">Enviar</button>
+    <td><a href="index.html "class="btn btn-primary">Home</a></td>
 </form>
 
 
