@@ -16,6 +16,6 @@ if(isset($_POST['enviar'])){
 
 }
 
-header ('location:../productos.php')
+header ('location:../Productos.php')
 
 ?>

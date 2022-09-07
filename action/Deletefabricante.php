@@ -2,12 +2,12 @@
 
 include('../connection/connection.php');
 
-$phpcodigo_fabricante = $_GET['id'];
+$phpCodigo = $_GET['id'];
 
-$delateFabricante="DELETE FROM fabricante WHERE codigo = '$phpcodigo_fabricante'";
+$DelateFabricante="DELETE FROM fabricante WHERE codigo = '$phpCodigo'";
 
-$resultado = mysqli_query($connection,$delateFabricante);
+$resultado = mysqli_query($connection,$DelateFabricante);
 
-header ('location:../fabricantes.php')
+header('Location:../Fabricantes.php')
 
 ?>

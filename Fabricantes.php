@@ -34,6 +34,8 @@
     <tr>
       <th scope="col">Codigo</th>
       <th scope="col">Nombre</th>
+      <th scope="col">Eliminar</th>
+      <th scope="col">Editar</th>
       </tr>
 </thead>
   <tbody>
@@ -49,8 +51,11 @@
     <tr>
       <th scope="row"><?php echo $fila ["codigo"] ?></th>
       <td><?php echo $fila["nombre"]?></td>
+      <td><a href="action/Deletefabricante.php?id=<?php echo $fila["codigo"] ?>"class="btn btn-danger">Eliminar</a></td>
+      <td><a class="btn btn-warning">Editar</a></td>
     </tr> 
-      
+
+          
       <?php } ?>
 
       </tbody>
