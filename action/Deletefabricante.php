@@ -4,7 +4,7 @@ include('../connection/connection.php');
 
 $phpCodigo = $_GET['id'];
 
-$DelateFabricante="DELETE FROM fabricante WHERE codigo = '$phpCodigo'";
+$DelateFabricante="DELETE FROM Fabricante WHERE codigo = '$phpCodigo'";
 
 $resultado = mysqli_query($connection,$DelateFabricante);
 
