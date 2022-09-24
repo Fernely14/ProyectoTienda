@@ -74,25 +74,42 @@
   <tbody>
 
   
-        <?php 
-          include('connection/connection.php');
-          $consulta = "SELECT * FROM producto";
-          $resultado = mysqli_query($connection,$consulta);
-          while ($fila = mysqli_fetch_array($resultado)){
-        ?>
+  <?php
+// Importar el archivo de conexion
+  include('connection/connection.php');
 
+  // Variable para listar toda la tabla de fabricante
+$consulta = "SELECT producto.codigo AS codigo_producto, 
+producto.nombre AS nombre_producto, 
+producto.precio AS precio_producto, 
+fabricante.nombre AS nombre_fabricante 
+FROM producto INNER JOIN fabricante 
+ON producto.codigo_fabricante = fabricante.codigo";
+// Query de conexion y query de listado
+$resultado = mysqli_query($connection, $consulta);
+// Mientras haya algo dentro de table, seguira listando
+while ($fila = mysqli_fetch_array($resultado)) {
+  ?>
     <tr>
-      <th scope="row"><?php echo $fila ["codigo"] ?></th>
-      <th scope="row"><?php echo $fila ["nombre"] ?></th>
-      <th scope="row"><?php echo $fila ["precio"] ?></th>
-      <th scope="row"><?php echo $fila ["codigo_fabricante"] ?></th>
-      <td><a href="action/Deleteproducto.php?id=<?php echo $fila["codigo"] ?>"class="btn btn-danger">Eliminar</a></td>
-      <td><a class="btn btn-warning">Editar</a></td>
+      <th scope="row"><?php echo $fila["codigo_producto"]?></th>
+      <td><?php echo $fila["nombre_producto"]?></td>
+      <td><?php echo $fila["precio_producto"]?></td>
+      <td><?php echo $fila["nombre_fabricante"]?></td>
+      <td><a button href="action/Deleteproducto.php?id=<?php echo $fila["codigo_producto"]?> " type="button" class="btn btn-danger" >Eliminar</a></td>
+      <td><a button href="action/editarproducto.php?id=<?php echo $fila["codigo_producto"]?> type="button" class="btn btn-warning">Editar</a></td>
       
-    </tr> 
-      
-      <?php } ?>
+    </tr>
+<?php }  // cierre del while
+?>
+</tbody>
+</table>
 
-      </tbody>
-    </table>
-   
+<!-- fin de tabla de fabricante -->
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>
